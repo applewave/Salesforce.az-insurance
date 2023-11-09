@@ -43,7 +43,7 @@ AZ Insurance is a sample application that demonstrates how to build customer, pa
 
     sfdx force:org:create -s -f config/project-scratch-def.json -a az-insurance
     ```zsh
-    ```sf org create scratch -s -f config/project-scratch-def.json -a az-insurance -d 30
+    sf org create scratch -s -f config/project-scratch-def.json -a az-insurance -d 30
     ```
 Warning: The force:org:create command is deprecated. Try "org create scratch" or "org create sandbox" instead.
 Successfully created scratch org: 00DH30000008cflMAA, username: test-3qiveai7fjqa@example.com.    
@@ -53,7 +53,7 @@ Successfully created scratch org: 00DH30000008cflMAA, username: test-3qiveai7fjq
 
     sfdx force:community:create --name "Dummy" --templatename "Aloha" -p "dummy"
     ```zsh
-    ```sf force:community:create --name "Dummy" -t "Aloha" -p "dummy"
+    sf force:community:create --name "Dummy" -t "Aloha" -p "dummy"
     ```
 Warning: The "--templatename" flag has been deprecated. Use "--template-name | -t" instead.
 === Create Site Result
@@ -66,7 +66,7 @@ Dummy Your Site is being created. 08PH3000000HdOuMAK Site creation is under way.
 
     sfdx force:source:deploy -m "ApexClass,Layout,CustomObject,LightningComponentBundle,ManagedContentType,CustomObject,StaticResource,CustomTab,PermissionSet,Flow"
     ```zsh
-    ```sf project deploy start -m "ApexClass,Layout,CustomObject,LightningComponentBundle,ManagedContentType,CustomObject,StaticResource,CustomTab,PermissionSet,Flow"
+    sf project deploy start -m "ApexClass,Layout,CustomObject,LightningComponentBundle,ManagedContentType,CustomObject,StaticResource,CustomTab,PermissionSet,Flow"
     ```
 Warning: We plan to deprecate this command in the future. Try using the "project deploy start" command instead.
 Deploying v52.0 metadata to test-3qiveai7fjqa@example.com using the v59.0 SOAP API.
@@ -77,7 +77,7 @@ Deploy ID: 0AfH3000002COqcKAG
 
     sfdx force:source:deploy -m "ApexPage,CustomSite,ExperienceBundle,NavigationMenu,Network,Profile"
     ```zsh
-    ```sf project deploy start -m "ApexPage,CustomSite,ExperienceBundle,NavigationMenu,Network,Profile"
+    sf project deploy start -m "ApexPage,CustomSite,ExperienceBundle,NavigationMenu,Network,Profile"
     ```
 Warning: We plan to deprecate this command in the future. Try using the "project deploy start" command instead.
 Deploying v52.0 metadata to test-3qiveai7fjqa@example.com using the v59.0 SOAP API.
@@ -87,7 +87,7 @@ Deploy ID: 0AfH3000002COrpKAG
 
     sfdx force:user:permset:assign -n LWR_Marketing_Builder
     ```zsh
-    ```sf force:user:permset:assign -n LWR_Marketing_Builder
+    sf force:user:permset:assign -n LWR_Marketing_Builder
     ```
 === Permsets Assigned
 Username                      Permission Set Assignment
@@ -98,7 +98,7 @@ test-3qiveai7fjqa@example.com LWR_Marketing_Builder
 
     sfdx force:community:publish -n "LWR Demo Marketing"
     ```zsh
-    ```sf force:community:publish -n "LWR Demo Marketing"
+    sf force:community:publish -n "LWR Demo Marketing"
     ```
 === Publish Site Result
  Id                 Message                                                                                             Name               Status            Url                                                             JobId
@@ -110,7 +110,7 @@ test-3qiveai7fjqa@example.com LWR_Marketing_Builder
 
     sfdx force:org:open
     ```
-    ```sf force:org:open
+    sf force:org:open
     ```
 
 As the sample app uses data from Salesforce CMS we have to import the provided sample data.
