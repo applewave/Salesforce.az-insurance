@@ -41,9 +41,9 @@ AZ Insurance is a sample application that demonstrates how to build customer, pa
 
 1.  Create a scratch org and provide it with an alias (**az-insurance** in the command below):
 
+    sfdx force:org:create -s -f config/project-scratch-def.json -a az-insurance
     ```zsh
-    ```sfdx force:org:create -s -f config/project-scratch-def.json -a az-insurance
-    sf org create scratch -s -f config/project-scratch-def.json -a az-insurance -d 30
+    ```sf org create scratch -s -f config/project-scratch-def.json -a az-insurance -d 30
     ```
 Warning: The force:org:create command is deprecated. Try "org create scratch" or "org create sandbox" instead.
 Successfully created scratch org: 00DH30000008cflMAA, username: test-3qiveai7fjqa@example.com.    
@@ -51,9 +51,9 @@ Successfully created scratch org: 00DH30000008cflMAA, username: test-3qiveai7fjq
 
 1.  Create a dummy Experience site. This is currently a necessary intermediate step to provision Experience Cloud related metadata before deploying our site.
 
+    sfdx force:community:create --name "Dummy" --templatename "Aloha" -p "dummy"
     ```zsh
-    ```sfdx force:community:create --name "Dummy" --templatename "Aloha" -p "dummy"
-    sf force:community:create --name "Dummy" -t "Aloha" -p "dummy"
+    ```sf force:community:create --name "Dummy" -t "Aloha" -p "dummy"
     ```
 Warning: The "--templatename" flag has been deprecated. Use "--template-name | -t" instead.
 === Create Site Result
@@ -64,9 +64,9 @@ Dummy Your Site is being created. 08PH3000000HdOuMAK Site creation is under way.
 
 1.  Deploy Salesforce org metadata (does not contain Experience site metadata, a current product bug prevents a deploy of all metadata at once):
 
+    sfdx force:source:deploy -m "ApexClass,Layout,CustomObject,LightningComponentBundle,ManagedContentType,CustomObject,StaticResource,CustomTab,PermissionSet,Flow"
     ```zsh
-    ```sfdx force:source:deploy -m "ApexClass,Layout,CustomObject,LightningComponentBundle,ManagedContentType,CustomObject,StaticResource,CustomTab,PermissionSet,Flow"
-    sf project deploy start -m "ApexClass,Layout,CustomObject,LightningComponentBundle,ManagedContentType,CustomObject,StaticResource,CustomTab,PermissionSet,Flow"
+    ```sf project deploy start -m "ApexClass,Layout,CustomObject,LightningComponentBundle,ManagedContentType,CustomObject,StaticResource,CustomTab,PermissionSet,Flow"
     ```
 Warning: We plan to deprecate this command in the future. Try using the "project deploy start" command instead.
 Deploying v52.0 metadata to test-3qiveai7fjqa@example.com using the v59.0 SOAP API.
@@ -75,9 +75,9 @@ Deploy ID: 0AfH3000002COqcKAG
 
 1.  Deploy Experience site metadata:
 
+    sfdx force:source:deploy -m "ApexPage,CustomSite,ExperienceBundle,NavigationMenu,Network,Profile"
     ```zsh
-    ```sfdx force:source:deploy -m "ApexPage,CustomSite,ExperienceBundle,NavigationMenu,Network,Profile"
-    sf project deploy start -m "ApexPage,CustomSite,ExperienceBundle,NavigationMenu,Network,Profile"
+    ```sf project deploy start -m "ApexPage,CustomSite,ExperienceBundle,NavigationMenu,Network,Profile"
     ```
 Warning: We plan to deprecate this command in the future. Try using the "project deploy start" command instead.
 Deploying v52.0 metadata to test-3qiveai7fjqa@example.com using the v59.0 SOAP API.
@@ -85,9 +85,9 @@ Deploy ID: 0AfH3000002COrpKAG
 
 1.  Assign the **LWR_Marketing_Builder** permission set to the default user:
 
+    sfdx force:user:permset:assign -n LWR_Marketing_Builder
     ```zsh
-    ```sfdx force:user:permset:assign -n LWR_Marketing_Builder
-    sf force:user:permset:assign -n LWR_Marketing_Builder
+    ```sf force:user:permset:assign -n LWR_Marketing_Builder
     ```
 === Permsets Assigned
 Username                      Permission Set Assignment
@@ -96,9 +96,9 @@ test-3qiveai7fjqa@example.com LWR_Marketing_Builder
  
 1.  Publish the Marketing site. The site URL will be printed via the CLI, and you'll receive a notification via email:
 
+    sfdx force:community:publish -n "LWR Demo Marketing"
     ```zsh
-    ```sfdx force:community:publish -n "LWR Demo Marketing"
-    sf force:community:publish -n "LWR Demo Marketing"
+    ```sf force:community:publish -n "LWR Demo Marketing"
     ```
 === Publish Site Result
  Id                 Message                                                                                             Name               Status            Url                                                             JobId
@@ -108,9 +108,9 @@ test-3qiveai7fjqa@example.com LWR_Marketing_Builder
 
 1.  Open the scratch org:
 
-    ```
     sfdx force:org:open
-    sf force:org:open
+    ```
+    ```sf force:org:open
     ```
 
 As the sample app uses data from Salesforce CMS we have to import the provided sample data.
